@@ -1,0 +1,5 @@
+[requires]
+OpenSceneGraph/3.4.0@demo/testing
+
+[generators]
+cmake
