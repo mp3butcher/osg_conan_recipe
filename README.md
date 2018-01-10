@@ -1,23 +1,28 @@
 # osg_conan_recipe
 experiment conan with osg
 
-# instructions
+# Instructions
 
-## google is your friend
-get Python
-pip install conan
+## Google is your friend
+- get Python
+- pip install conan
 
-## this project
+## This project
 cd OpenSceneGraph
+
 conan export demo/testing
+
 cd ..
-### build from source or retrieve from conan.io
+### Build from source or retrieve from bintray
 conan install OpenSceneGraph/3.4.0@demo/testing
+
 cd test ; mkdir build;
+
 conan install ..
 
-###force built
+### forced built
 cd test ; mkdir build;
+
 conan install .. --build OpenSceneGraph
 
 
