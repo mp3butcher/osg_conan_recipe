@@ -20,9 +20,9 @@ class OpenSceneGraphConan(ConanFile):
     short_paths = True #for win<7 naming
 
     def source(self):
-        self.run("git clone https://github.com/openscenegraph/OpenSceneGraph.git")
+        self.run("git clone https://github.com/mp3butcher/OpenSceneGraph.git")
         self.customDependenciesDownload()
-        self.run("cd OpenSceneGraph")
+        self.run("cd OpenSceneGraph && git checkout origin/OpenSceneGraph-3.4")
         
         # && git checkout static_shared")
         # This small hack might be useful to guarantee proper /MT /MD linkage in MSVC
