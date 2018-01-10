@@ -16,6 +16,7 @@ class OpenSceneGraphConan(ConanFile):
     options = {"shared": [True, False],"dev_deploy": [True, False]}
     default_options = "shared=True","dev_deploy=True"
     generators = "cmake"
+    copy_source_to_build_dir = False
     build_policy = "missing" #"always" #
     short_paths = True #for win<7 naming
 
