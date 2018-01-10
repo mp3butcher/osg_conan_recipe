@@ -48,7 +48,7 @@ class OpenSceneGraphConan(ConanFile):
         if self.settings.os == "Windows" and self.settings.compiler == "Visual Studio":
             self.copy("*", dst="3rdParty", src="3rdParty")
         
-        self.copy("*", dst="include", src="include")
+        self.copy("*", dst="include", src="OpenSceneGraph/include")
         self.copy("*", dst="bin", src="bin")
         self.copy("*", dst="lib", src="lib")
         #self.copy("*.dll", dst="bin", keep_path=False)
