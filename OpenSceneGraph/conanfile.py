@@ -18,10 +18,10 @@ class OpenSceneGraphConan(ConanFile):
     generators = "cmake"
     copy_source_to_build_dir = False
     build_policy = "missing" #"always" #
-    short_paths = True #for win<7 naming
+    short_paths = True #for win<10 naming
 
     def source(self):
-        self.run("git clone https://github.com/mp3butcher/OpenSceneGraph.git")
+        self.run("git clone https://github.com/openscenegraph/OpenSceneGraph.git")
         self.customDependenciesDownload()
         self.run("cd OpenSceneGraph && git checkout origin/OpenSceneGraph-3.4")
         
