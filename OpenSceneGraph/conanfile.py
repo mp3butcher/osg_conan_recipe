@@ -35,7 +35,7 @@ class OpenSceneGraphConan(ConanFile):
         if os_info.linux_distro == "ubuntu":
             self.run('sudo apt-get build-dep openscenegraph', True)
             #gstreamer seams missing after build-dep
-            pack_name="libgstreamer1.0-dev libgstreamer1.0-dev"
+            pack_name="libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev"
         elif os_info.linux_distro == "fedora" or os_info.linux_distro == "centos":
             pack_name = "TODOpackage_names_in_fedora_and_centos"
         elif os_info.is_macos:
