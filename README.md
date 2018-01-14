@@ -8,6 +8,11 @@ experiment conan with osg
 - pip install conan
 
 ## This project
+
+### build package from recipe
+conan create OpenSceneGraph/3.4.0@demo/testing
+
+### Export Recipe and test package
 cd OpenSceneGraph
 
 conan export demo/testing
