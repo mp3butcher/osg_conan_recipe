@@ -7,7 +7,7 @@ from conans.tools import os_info, SystemPackageTool
 
 class VirtualPlanetBuilderConan(ConanFile):
     name = "VirtualPlanetBuilder"
-    version = "3.4.0"
+    version = "1.0"
     license = "https://raw.githubusercontent.com/openscenegraph/VirtualPlanetBuilder/master/LICENSE.txt"
     url = "https://github.com/VirtualPlanetBuilder/VirtualPlanetBuilder"
     description = "Tool for generating paged databases from geospatial imagery and heightfields"
@@ -19,16 +19,16 @@ class VirtualPlanetBuilderConan(ConanFile):
     #copy_source_to_build_dir = False
     build_policy = "missing" #"always" #
     short_paths = True #for win<10 naming
-    
-    def requirements(self):        
-        self.requires("OpenSceneGraph/*@demo/testing")
+    requires = "OpenSceneGraph/3.4.2@demo/testing"
+
+    #def requirements(self):  self.requires("OpenSceneGraph/3.4.2@demo/testing")
 
     def imports(self):
         #self.copy("*", "bin", "bin")
         #self.copy("*", "lib", "lib")
         #self.copy("*", "include", "include")
 
-    def system_requirements(self):
+     def system_requirements(self):
         self.output.warn("system_requirements: ")
         pack_name = None
         if os_info.linux_distro == "ubuntu":
@@ -52,7 +52,6 @@ class VirtualPlanetBuilderConan(ConanFile):
         self.run("git clone https://github.com/openscenegraph/VirtualPlanetBuilder.git")
         
     def build(self):
-        #Could NOT find GStreamer 
         cmake = CMake(self) 
         cmake.configure(source_dir="%s/VirtualPlanetBuilder" % self.source_folder)
         cmake.build()

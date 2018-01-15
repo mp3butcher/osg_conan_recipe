@@ -9,26 +9,17 @@ experiment conan with osg
 
 ## This project
 
-### build package from recipe
-conan create OpenSceneGraph/3.4.0@demo/testing
+### classic build package from recipes
+conan create OpenSceneGraph demo/testing
+conan create VirtualPlanetBuilder demo/testing
+....
 
 ### Export Recipe and test package
-cd OpenSceneGraph
+conan export OpenSceneGraph demo/testing
+conan install OpenSceneGraph/3.4.2@demo/testing
+conan test OpenSceneGraph/test_package OpenSceneGraph/3.4.2@demo/testing 
 
-conan export demo/testing
 
-cd ..
-### Build from source or retrieve from bintray
-conan install OpenSceneGraph/3.4.0@demo/testing
-
-cd test ; mkdir build;
-
-conan install ..
-
-### forced built
-cd test ; mkdir build;
-
-conan install .. --build OpenSceneGraph
 
 
  
