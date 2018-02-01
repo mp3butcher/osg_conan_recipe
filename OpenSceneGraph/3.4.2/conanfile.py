@@ -35,7 +35,7 @@ class OpenSceneGraphConan(ConanFile):
         if os_info.linux_distro == "ubuntu":
             self.run('sudo apt-get build-dep openscenegraph', True)
             #gstreamer seams missing after build-dep
-            pack_name="libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libasio-dev libcollada-dom2.4-dp-dev libdcmtk-dev libfltk1.3-dev libnvtt-dev"
+            pack_name="libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libasio-dev libcollada-dom2.4-dp-dev libdcmtk-dev libfltk1.3-dev libnvtt-dev libboost-filesystem-dev"
         elif os_info.linux_distro == "fedora" or os_info.linux_distro == "centos":
             pack_name = "TODOpackage_names_in_fedora_and_centos"
         elif os_info.is_macos:
@@ -84,7 +84,7 @@ class OpenSceneGraphConan(ConanFile):
         self.copy("*", dst="include", src="include")
         self.copy("*", dst="include", src="OpenSceneGraph/include")
         self.copy("*", dst="bin", src="bin")
-        self.copy("*.so", dst="lib", src="lib")
+        self.copy("*.so*", dst="lib", src="lib")
         self.copy("*.dll", dst="lib", src="lib")
         if not self.options.shared:
             self.copy("*.lib", "lib", "3rdparty/lib", keep_path=False)
@@ -104,7 +104,7 @@ class OpenSceneGraphConan(ConanFile):
         if self.settings.os != "Windows":
             self.env_info.LD_LIBRARY_PATH.append( os.path.join(self.package_folder, "lib"))
         self.env_info.PATH.append(os.path.join(self.package_folder, "bin"))
-        if self.settings.os == "Windows" and self.settings.compiler == "Visual Studio":     
+        if self.settings.os == "Windows":     
             self.env_info.PATH.append(os.path.join(self.package_folder, "3rdParty/bin"))
       
         

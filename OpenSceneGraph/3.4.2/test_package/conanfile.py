@@ -21,7 +21,7 @@ class DefaultNameConan(ConanFile):
         #self.copy(pattern="*.so", dst="lib", src="lib")
         
     def test(self):
+        #self.output.info(os.environ)
         self.run(".%sosgrequire cow.osgt" % os.sep)
-
         #assert os.path.exists(os.path.join(self.deps_cpp_info["osgrequire"].rootpath, "LICENSE"))
 
