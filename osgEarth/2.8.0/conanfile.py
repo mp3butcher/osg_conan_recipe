@@ -7,7 +7,7 @@ from conans.tools import os_info, SystemPackageTool
 
 class OpenSceneGraphConan(ConanFile):
     name = "osgEarth"
-    version = "3.4.2"
+    version = "2.8"
     license = "https://github.com/gwaldron/osgearth/blob/master/LICENSE.txt"
     url = "https://github.com/gwaldron/osgearth"
     description = "The OpenSceneGraph is an open source high performance 3D graphics toolkit, used by application developers in fields such as visual simulation, games, virtual reality, scientific visualization and modelling. Written entirely in Standard C++ and OpenGL it runs on all Windows platforms, OSX, GNU/Linux, IRIX, Solaris, HP-Ux, AIX and FreeBSD operating systems. The OpenSceneGraph is now well established as the world leading scene graph technology, used widely in the vis-sim, space, scientific, oil-gas, games and virtual reality industries."
@@ -55,7 +55,7 @@ class OpenSceneGraphConan(ConanFile):
 
         #retrieve OSG 3.4 (seams 3.4.2)	
         self.run("git clone https://github.com/gwaldron/osgearth.git")        
-        self.run("cd osgearth")
+        self.run("cd osgearth && git checkout origin/2.8")
         
         # This small hack might be useful to guarantee proper /MT /MD linkage in MSVC
         # if the packaged project doesn't have variables to s   et it properly
